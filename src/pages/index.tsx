@@ -1,6 +1,7 @@
 import React, { useState } from "react"
-import { useDispatch } from "react-redux"
-import { getData } from "../state/actions/getData"
+import { useDispatch, useSelector } from "react-redux"
+import { setData } from "../state/actions/setData"
+import { store } from "../state/store"
 
 interface Items {
   number: number
@@ -43,15 +44,22 @@ const Component2 = () => {
 }
 
 const Component3 = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch()  
 
   const setState = () => {  
-    dispatch(getData('Chris'))
+    dispatch(setData('Chris'))
+  }
+
+  const getState = () => {  
+    var newState = store.getState();
+    console.log(newState)
   }
 
   return (
-    <button onClick={setState}>set state</button>
-    
+    <>
+      <button onClick={setState}>set state</button>
+      <button onClick={getState}>get state</button>
+    </>
   )
 
   

@@ -1,7 +1,7 @@
 const reducers = (state = null, action) => {
 
     switch(action.type) {
-      case 'GET_DATA':
+      case 'SET_DATA':
         return {...state, data: action.payload};
 
       default:

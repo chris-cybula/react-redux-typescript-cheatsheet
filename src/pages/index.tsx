@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux"
+import { getData } from "../state/actions/getData"
 
 interface Items {
   number: number
@@ -40,6 +42,21 @@ const Component2 = () => {
   return <p>asdsdf</p>
 }
 
+const Component3 = () => {
+  const dispatch = useDispatch()
+
+  const setState = () => {  
+    dispatch(getData('Chris'))
+  }
+
+  return (
+    <button onClick={setState}>set state</button>
+    
+  )
+
+  
+}
+
 const App = () => {
   const test: number = 66
 
@@ -52,6 +69,7 @@ const App = () => {
       <div>{fun()}</div>
       <Component number={12} string={"12345"} />
       <Component2 />
+      <Component3 />
     </>
   )
 }

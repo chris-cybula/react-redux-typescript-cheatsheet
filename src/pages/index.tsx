@@ -53,6 +53,12 @@ const Component3 = () => {
   const getState = () => {  
     var newState = store.getState();
     console.log(newState)
+
+    if(newState.reducer === null) {
+      alert("State is empty")
+    } else {
+      alert(newState.reducer.data)
+    }
   }
 
   return (

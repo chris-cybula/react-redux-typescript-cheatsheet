@@ -1,4 +1,4 @@
-const reducers = (state = null, action) => {
+const reducer = (state = null, action) => {
 
     switch(action.type) {
       case 'SET_DATA':
@@ -9,4 +9,4 @@ const reducers = (state = null, action) => {
     }
   }
 
-  export default reducers
+  export default reducer

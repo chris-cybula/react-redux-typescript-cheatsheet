@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setData } from "../state/actions/setData"
 import { store } from "../state/store"
+import { State } from "../state/reducers/reducer"
 
 interface Items {
   number: number
@@ -31,9 +32,6 @@ const Component: React.FC<Items> = ({ number, string }) => {
 }
 
 const Component2 = () => {
-
-  
-
   let myAdd = (x:number, y:number)  => {
     return x + y;
   };
@@ -44,7 +42,10 @@ const Component2 = () => {
 }
 
 const Component3 = () => {
-  const dispatch = useDispatch()  
+  const dispatch = useDispatch() 
+  const state = useSelector((state: State) => state["reducer"])
+
+  console.log('state', state.data) 
 
   const setState = () => {  
     dispatch(setData('Chris'))
@@ -52,9 +53,8 @@ const Component3 = () => {
 
   const getState = () => {  
     var newState = store.getState();
-    console.log(newState)
 
-    if(newState.reducer === null) {
+    if(newState.reducer.data === "") {
       alert("State is empty")
     } else {
       alert(newState.reducer.data)
@@ -66,9 +66,7 @@ const Component3 = () => {
       <button onClick={setState}>set state</button>
       <button onClick={getState}>get state</button>
     </>
-  )
-
-  
+  )  
 }
 
 const App = () => {

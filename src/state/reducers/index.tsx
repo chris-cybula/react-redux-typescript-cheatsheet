@@ -7,8 +7,3 @@ const allReducers = combineReducers({
 
 export default allReducers;
 
-// export const rootReducer = combineReducers({
-//     reducers
-//   });
-  
-// export type RootState = ReturnType<typeof rootReducer>

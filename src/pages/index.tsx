@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setData } from "../state/actions/setData"
 import { store } from "../state/store"
 import { State } from "../state/reducers/reducer"
-import Variables from "../components/ts/Variables"
+import Ts from "../components/ts"
 
 interface Items {
   number: number
@@ -79,7 +79,7 @@ const App = () => {
 
   return (
     <>
-      <Variables />
+      <Ts />
       {/* <div>{fun()}</div> */}
       {/* <Component number={12} string={"12345"} />
       <Component2 />

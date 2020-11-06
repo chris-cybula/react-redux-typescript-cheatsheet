@@ -1,14 +1,14 @@
-export interface State {
+import { Action } from "../actions/setData"
+
+export interface StateTypes {
   data: string;
 }
 
 const initialState = {
-  data: "empty"
+  data: "State is empty"
 }
 
-type Action = { type: 'SET_DATA', payload: string }
-
-const reducer = (state:State = initialState, action: Action) => {
+const reducer = (state:StateTypes = initialState, action: Action) => {
 
     switch(action.type) {
       case 'SET_DATA':

@@ -21,11 +21,46 @@ const Variables = () => {
   )
 }
 
+const Functions = () => {
+  const sum = (x:number, y:number): number  => {
+    return x + y;
+  };
+
+  const string = (username: string, points: number): string => {  
+    return `${ username } ${ points }`;  
+  };
+
+  return (
+    <>
+      <h1>Functions</h1>
+      <p>{sum(1, 2)}</p>
+      <p>{string('Chris', 100)}</p>
+    </>
+  )
+}
+
+interface Items {
+  number: number
+  string: string
+}
+
+const Props: React.FC<Items> = ({ number, string }) => {
+  
+  return (
+    <>
+      <h1>Props</h1>
+      <p>{number}</p>
+      <p>{string}</p>
+    </>
+  )
+}
 
 export default () => {
   return (
     <>
       <Variables />
+      <Functions />
+      <Props number={100} string={"Chris"} />
     </>
   )
 }

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { setData } from "../state/actions/setData"
-import { StateTypes } from "../state/reducers/reducer"
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "../state/actions/setData";
+import { StateTypes } from "../state/reducers/reducer";
 
-const Variables = () => {
-  const variable: number = 100
-  const string: string = "string"
-  let boolean: boolean = true
-  let arr: number[] = [1, 2, 3]
+const Variables: React.FC = () => {
+  const variable: number = 100;
+  const string: string = "string";
+  let boolean: boolean = true;
+  let arr: number[] = [1, 2, 3];
 
   return (
     <>
@@ -17,21 +17,21 @@ const Variables = () => {
         <p>{string}</p>
         <p>{boolean && "true"}</p>
         {arr.map((item, i) => {
-          return <p key={i}>{item}</p>
+          return <p key={i}>{item}</p>;
         })}
       </div>
     </>
-  )
-}
+  );
+};
 
-const Functions = () => {
+const Functions: React.FC = () => {
   const sum = (x: number, y: number): number => {
-    return x + y
-  }
+    return x + y;
+  };
 
   const string = (username: string, points: number): string => {
-    return `${username} ${points}`
-  }
+    return `${username} ${points}`;
+  };
 
   return (
     <>
@@ -39,12 +39,12 @@ const Functions = () => {
       <p>{sum(1, 2)}</p>
       <p>{string("Chris", 100)}</p>
     </>
-  )
-}
+  );
+};
 
 interface Items {
-  number: number
-  string: string
+  number: number;
+  string: string;
 }
 
 const Props: React.FC<Items> = ({ number, string }) => {
@@ -54,53 +54,53 @@ const Props: React.FC<Items> = ({ number, string }) => {
       <p>{number}</p>
       <p>{string}</p>
     </>
-  )
-}
+  );
+};
 
-const State = () => {
+const State: React.FC = () => {
   interface User {
-    name: string
+    name: string;
   }
 
-  const [user, setUser] = useState<User>({ name: "Chris" })
+  const [user, setUser] = useState<User>({ name: "Chris" });
 
   useEffect(() => {
-    setUser({ name: "Chris!" })
-  }, [])
+    setUser({ name: "Chris!" });
+  }, []);
 
   return (
     <>
       <h1>State</h1>
       <p>{user.name}</p>
     </>
-  )
-}
+  );
+};
 
-const Events = () => {
+const Events: React.FC = () => {
   const event = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    alert(event.currentTarget)
-  }
+    alert(event.currentTarget);
+  };
 
   return (
     <>
       <h1>Events</h1>
       <button onClick={event}>Button</button>
     </>
-  )
-}
+  );
+};
 
-const Redux = () => {
-  const dispatch = useDispatch()
-  const state = useSelector((state: StateTypes) => state["reducer"])
+const Redux: React.FC = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state: StateTypes) => state["reducer"]);
 
   const setState = () => {
-    dispatch(setData("Chris"))
-    alert("State has been set")
-  }
+    dispatch(setData("Chris"));
+    alert("State has been set");
+  };
 
   const getState = () => {
-    alert(state.data)
-  }
+    alert(state.data);
+  };
 
   return (
     <>
@@ -108,8 +108,8 @@ const Redux = () => {
       <button onClick={setState}>set state</button>
       <button onClick={getState}>get state</button>
     </>
-  )
-}
+  );
+};
 
 export default () => {
   return (
@@ -121,5 +121,5 @@ export default () => {
       <Events />
       <Redux />
     </>
-  )
-}
+  );
+};

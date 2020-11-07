@@ -1,31 +1,12 @@
-import React from "react"
-import Ts from "../components/ts"
+import React from "react";
+import Ts from "../components/ts";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <Ts />
     </>
-  )
-}
+  );
+};
 
-export default App
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default App;
